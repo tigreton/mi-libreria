@@ -1,0 +1,398 @@
+<html>
+  <head>
+    <title>Documentation: Kmessaging</title>
+    <style type="text/css">
+    <!--
+      body,td { font: 8pt verdana #000000; }
+      body { background: #ffffff; }
+      a { text-decoration: none; color: #0000aa; }
+      a:hover { text-decoration: underline; }
+      h1 { font-size: 12pt; letter-spacing: 2pt; }
+      hr { height: 1px; color: #dddddd; background: #dddddd; }
+      .varname { font-size: 10pt; letter-spacing: 2pt; color: #123456; font-weight: bold; }
+      .funname { font-size: 10pt; letter-spacing: 2pt; color: #123456; font-weight: bold; }
+      .vartype { color: #0000aa; font-weight: bold; }
+    //-->
+    </style>
+  </head>
+  <body>
+    <a name='top'></a>
+    <h1>Class: <b>Kmessaging</b> (1.2)b</h1>
+    Class to implement and internal mail system.<br>
+    Credits to: <a href='mailto:joaopedro17@netvisao.pt'>bubu</a><br>
+    <h1>Download:</h1>
+    To download .rar click <a href="kMessaging.rar" alt="Download" title="Download">here</a><br>
+    To download .zip click <a href="kMessaging.zip" alt="Download" title="Download">here</a><br><br>
+    tar.gz available soon
+    <a name='var'></a>
+    <br><u>Variables</u><br><br>
+    <a href='#var_DBName' title="Holds the database name"><span class=vartype>string</span> Kmessaging::DBName</a><br>
+    <a href='#var_DBUser' title="Mysql Server Username"><span class=vartype>string</span> Kmessaging::DBUser</a><br>
+    <a href='#var_DBPass' title="Mysql Server Password"><span class=vartype>string</span> Kmessaging::DBPass</a><br>
+    <a href='#var_DBHost' title="Mysql Server Hostname"><span class=vartype>string</span> Kmessaging::DBHost</a><br>
+    <a href='#var_tblName' title="Name of the table"><span class=vartype>string</span> Kmessaging::tblName</a><br>
+    <a name='fun'></a>
+    <br><u>Methods</u><br><br>
+    <a href='#fun_KMessaging' title="Constructor and connection to database">Kmessaging::KMessaging (
+    $connect 
+    , $selectDB 
+    , $con 
+    ) </a><br>
+    <a href='#fun_SendMessege' title="Sends the message">Kmessaging::SendMessege (
+    $title
+    , $body
+    , $sender
+    , $receiver 
+    , $senderLevel 
+    ) </a><br>
+    <a href='#fun_GetTitle' title="Gets the title of one specific message">Kmessaging::GetTitle (
+    $msgId 
+    ) </a><br>
+    <a href='#fun_GetBody' title="Gets the body of one specific message">Kmessaging::GetBody (
+    $msgId
+    ) </a><br>
+    <a href='#fun_GetSenderID' title="Gets the sender ID of one specific message">Kmessaging::GetSenderID (
+    $msgId 
+    ) </a><br>
+    <a href='#fun_GetReceiverID' title="Gets the receiver ID of one specific message">Kmessaging::GetReceiverID (
+    $msgId
+    ) </a><br>
+    <a href='#fun_GetMessege' title="Gets a specific message">Kmessaging::GetMessege (
+    $msgId 
+    ) </a><br>
+    <a href='#fun_MarkAsRead' title="Marks an specific message as Readed">Kmessaging::MarkAsRead (
+    $msgId
+    ) </a><br>
+    <a href='#fun_GetAllMesseges' title="Get all messages">Kmessaging::GetAllMesseges (
+    $order
+    , $receiver 
+    , $sender 
+    ) </a><br>
+    <a href='#fun_DeleteMessege' title="Deletes a specific message">Kmessaging::DeleteMessege (
+    $msgId
+    ) </a><br>
+    <hr>
+    <a name='var_DBName'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td>
+          <span class=varname>Kmessaging::DBName</span></a>
+        </td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Holds the database name<br><br>
+    &nbsp; <b>Type:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; string<br>
+    <br>&nbsp; <b>Default:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; 'dbname'<br>
+    <br>
+    <hr>
+    <a name='var_DBUser'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td>
+          <span class=varname>Kmessaging::DBUser</span></a>
+        </td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Mysql Server Username<br><br>
+    &nbsp; <b>Type:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; string<br>
+    <br>&nbsp; <b>Default:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; 'username'<br>
+    <br>
+    <hr>
+    <a name='var_DBPass'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td>
+          <span class=varname>Kmessaging::DBPass</span></a>
+        </td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Mysql Server Password<br><br>
+    &nbsp; <b>Type:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; string<br>
+    <br>&nbsp; <b>Default:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; 'password'<br>
+    <br>
+    <hr>
+    <a name='var_DBHost'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td>
+          <span class=varname>Kmessaging::DBHost</span></a>
+        </td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Mysql Server Hostname<br><br>
+    &nbsp; <b>Type:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; string<br>
+    <br>&nbsp; <b>Default:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; 'localhost'<br>
+    <br>
+    <hr>
+    <a name='var_tblName'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td>
+          <span class=varname>Kmessaging::tblName</span></a>
+        </td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Name of the table<br><br>
+    &nbsp; <b>Type:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; string<br>
+    <br>&nbsp; <b>Default:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp; 'MsgTbl'<br>
+    <br>
+    <hr><a name='fun_KMessaging'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::KMessaging()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Constructor and connection to database<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>bool</span>
+    )
+    $connect<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>bool</span>
+    )
+    $selectDB<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>DB connection</span>
+    )
+    $con<br>
+    <br>&nbsp; <b>Default:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;$connect = false<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;$selectDB = false<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;$con = ''<br>
+    <br>
+    <hr><a name='fun_SendMessege'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::SendMessege()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Sends the message<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>string</span>
+    )
+    $title<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>string</span>
+    )
+    $body<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $sender<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $receiver<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $senderLevel<br>
+    <br>
+    <hr><a name='fun_GetTitle'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::GetTitle()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Gets the title of one specific message<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $msgId<br>
+    <br>
+    <hr><a name='fun_GetBody'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::GetBody()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Gets the body of one specific message<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $msgId<br>
+    <br>
+    <hr><a name='fun_GetSenderID'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::GetSenderID()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Gets the sender ID of one specific message<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $msgId<br>
+    <br>
+    <hr><a name='fun_GetReceiverID'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::GetReceiverID()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Gets the receiver ID of one specific message<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $msgId<br>
+    <br>
+    <hr><a name='fun_GetMessege'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::GetMessege()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Gets a specific message<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $msgId<br>
+    <br>
+    <hr><a name='fun_MarkAsRead'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::MarkAsRead()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Marks an specific message as Readed<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $msgId<br>
+    <br>
+    <hr><a name='fun_GetAllMesseges'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::GetAllMesseges()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Get all messages<br>
+    $order can take the next values<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;(0-> Order By senderLevel Ascendent,<br>
+	&nbsp; &nbsp; &nbsp; &nbsp; 1-> Order By senderLevel Descendent,<br>
+	&nbsp; &nbsp; &nbsp; &nbsp; 2-> Order By readed messege Ascendent,<br>
+	&nbsp; &nbsp; &nbsp; &nbsp; 3-> Order By senderLevel Descendent)<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $order<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $receiver<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $sender<br>
+    <br>&nbsp; <b>Default:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;$order = 0<br>
+    <br>
+    <hr><a name='fun_DeleteMessege'></a>
+    <table border=0 cellpadding=0 cellspacing=0 width=100%>
+      <tr>
+        <td><span class=funname>Kmessaging::DeleteMessege()</span></a></td>
+        <td align=right>
+          <a href='#top'>^ Top</a>
+          | <a href='#var'>^ Variables</a>
+          | <a href='#fun'>^ Methods</a>
+        </td>
+      </tr>
+    </table>
+    Deletes a specific message<br><br>
+    &nbsp; <b>Arguments:</b><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    ( <span class=vartype>int</span>
+    )
+    $msgId<br>
+    <br>
+  </body>
+</html>
