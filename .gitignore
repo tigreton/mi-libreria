@@ -3,3 +3,5 @@
 *.pyo
 ultima
 ultima.pub
+.settings
+.project
